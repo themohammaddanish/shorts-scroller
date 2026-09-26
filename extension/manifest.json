@@ -1,0 +1,22 @@
+{
+  "manifest_version": 3,
+  "name": "Shorts Auto-Scroller",
+  "version": "1.0.0",
+  "description": "Auto-scrolls YouTube Shorts and is controllable from a floating desktop widget.",
+  "permissions": ["tabs", "nativeMessaging", "storage", "alarms"],
+  "host_permissions": ["*://*.youtube.com/*"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://*.youtube.com/shorts*"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Shorts Auto-Scroller"
+  }
+}

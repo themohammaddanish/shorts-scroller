@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <style>
+    body { font-family: system-ui, sans-serif; width: 220px; margin: 0; padding: 10px; background: #181818; color: #eee; }
+    h1 { font-size: 13px; margin: 0 0 8px; }
+    button { width: 100%; margin: 3px 0; padding: 6px; border: 0; border-radius: 6px; background: #323232; color: #eee; cursor: pointer; font-size: 12px; }
+    button:hover { background: #444; }
+    #primary.on { background: #cc0000; }
+    .row { display: flex; gap: 4px; }
+    .row button { flex: 1; }
+    label { font-size: 11px; color: #aaa; }
+    input { width: 60px; }
+    #state { font-size: 11px; color: #9f9; min-height: 14px; }
+  </style>
+</head>
+<body>
+  <h1>Shorts Auto-Scroller</h1>
+  <div id="state"></div>
+  <button id="primary" class="on">Auto-Scroll: ON</button>
+  <button id="pauseBtn">Pause</button>
+  <div class="row">
+    <button id="prevBtn">⟵ Prev</button>
+    <button id="nextBtn">Next ⟶</button>
+  </div>
+  <label>Delay (s): <input id="delay" type="number" min="0" max="60" step="0.5" /></label>
+  <button id="setDelay">Set Delay</button>
+  <script src="popup.js"></script>
+</body>
+</html>
