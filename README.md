@@ -31,12 +31,24 @@ background.
 2. **Load the extension**: Chrome → `chrome://extensions` → enable
    *Developer mode* → *Load unpacked* → select the `extension/` folder.
 3. **Copy the extension ID** shown on the extension card.
-4. **Register the native host**: run `native-host\install.bat`, paste the
-   extension ID when prompted. It writes
-   `com.ytshorts.autoscroll.json` and adds the
-   `HKCU\...\NativeMessagingHosts\com.ytshorts.autoscroll` registry key.
-5. **Reload the extension** (circular-arrows icon on its card), then open
-   `youtube.com/shorts`.
+4. **Register the native host** (one-time step that tells Chrome how to
+   launch the desktop widget):
+   1. Open File Explorer, go to the `native-host` folder, and double-click
+      `install.bat`. A black console window opens and asks:
+      `Paste the extension ID ... then press Enter`.
+   2. Paste the extension ID you copied in step 3 and press Enter.
+   3. The script does two things automatically:
+      - creates `com.ytshorts.autoscroll.json` inside the `native-host`
+        folder (this file names your extension ID and the path to
+        `host.bat`), and
+      - adds a registry key under
+        `HKEY_CURRENT_USER\Software\Google\Chrome\NativeMessagingHosts\com.ytshorts.autoscroll`
+        that points Chrome to that JSON file.
+   4. When it prints `Done.`, the registration is complete.
+5. **Reload the extension** (click the circular-arrows ↻ icon on the
+   extension's card in `chrome://extensions`), then open
+   `youtube.com/shorts` in any tab. The red "▶" widget should appear on your
+   desktop within a few seconds.
 
 The red "▶" widget appears (top-left area of the screen). Drag it anywhere —
 the position is saved. Click it (or right-click) to open/close the control
